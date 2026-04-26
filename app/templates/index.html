@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇻🇳 Sử Việt Toàn Thư</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/+esm"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>🇻🇳 Sử Việt Toàn Thư</h1>
+                <p>Chuyên gia lịch sử Việt Nam</p>
+            </div>
+            
+            <div class="sidebar-info">
+                <div class="status-item">
+                    <span class="status-dot" id="status-dot"></span>
+                    <span id="status-text">Sẵn sàng</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <button class="menu-btn" onclick="newChat()" id="new-chat-btn">
+                    <span class="icon">➕</span>
+                    <span>Cuộc trò chuyện mới</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <p><strong>📚 Tôi chuyên về:</strong></p>
+                <ul>
+                    <li>👑 Các triều đại: Trần, Lê, Tây Sơn, Nguyễn</li>
+                    <li>🗡️ Danh nhân lịch sử</li>
+                    <li>📜 Sự kiện quan trọng</li>
+                    <li>🏛️ Di sản văn hoá</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🇻🇳</div>
+                    <div class="message-content">
+                        <h3>Xin chào! 👋</h3>
+                        <p>Tôi là <strong>Sử Việt Toàn Thư</strong> - một chuyên gia lịch sử Việt Nam. </p>
+                        <p>Hãy hỏi tôi bất cứ điều gì về lịch sử nước ta! </p>
+                        <div class="example-questions">
+                            <p><strong>Ví dụ câu hỏi:</strong></p>
+                            <div class="question-chips">
+                                <button class="chip" onclick="sendMessage('Ai là vua Quang Trung?')">Vua Quang Trung</button>
+                                <button class="chip" onclick="sendMessage('Nhà Trần có bao nhiêu vị vua?')">Nhà Trần</button>
+                                <button class="chip" onclick="sendMessage('Tây Sơn là gì?')">Tây Sơn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-section">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="user-input" 
+                        class="message-input"
+                        placeholder="Hỏi về lịch sử Việt Nam... (Nhấn Shift+Enter để xuống dòng)"
+                        rows="1"
+                    ></textarea>
+                    <button id="send-btn" class="send-button" onclick="sendMessage()">
+                        <span class="icon">➤</span>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <small>💡 Tôi chỉ trả lời câu hỏi về lịch sử Việt Nam</small>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const loadingSpinner = document.getElementById('loading');
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // Send message on Enter
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        async function sendMessage(text = null) {
+            const message = text || userInput.value.trim();
+            
+            if (!message) return;
+
+            // Add user message to UI
+            addMessage(message, 'user');
+            userInput.value = '';
+            userInput.style.height = 'auto';
+
+            // Show loading
+            setStatus('Suy ngẫm...', 'yellow');
+            loadingSpinner.style.display = 'flex';
+            sendBtn.disabled = true;
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Parse markdown
+                    const html = marked.parse(data.reply);
+                    const sanitized = DOMPurify.sanitize(html);
+                    addMessage(sanitized, 'bot', true);
+                    setStatus('Sẵn sàng', 'green');
+                } else {
+                    addMessage(data.error || 'Có lỗi xảy ra', 'bot', false);
+                    setStatus('Lỗi', 'red');
+                }
+            } catch (error) {
+                addMessage('❌ Lỗi kết nối. Kiểm tra internet hoặc API key.', 'bot', false);
+                setStatus('Lỗi', 'red');
+                console.error('Error:', error);
+            } finally {
+                loadingSpinner.style.display = 'none';
+                sendBtn.disabled = false;
+                userInput.focus();
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        function addMessage(content, role, isHtml = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}-message`;
+
+            const avatar = role === 'user' ? '👤' : '🇻🇳';
+            
+            if (isHtml) {
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">${avatar}</div>
+                    <div class="message-content">${content}</div>
+                `;
+            } else {
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                contentDiv.textContent = content;
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = 'message-avatar';
+                avatarDiv.textContent = avatar;
+                
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function setStatus(text, color) {
+            statusText.textContent = text;
+            statusDot.style.backgroundColor = {
+                'green': '#10b981',
+                'yellow': '#f59e0b',
+                'red': '#ef4444'
+            }[color] || '#10b981';
+        }
+
+        function newChat() {
+            if (confirm('Xóa lịch sử trò chuyện?')) {
+                fetch('/clear', { method: 'POST' });
+                chatMessages.innerHTML = `
+                    <div class="message bot-message">
+                        <div class="message-avatar">🇻🇳</div>
+                        <div class="message-content">
+                            <p>Lịch sử đã xóa! Sẵn sàng bắt đầu cuộc trò chuyện mới. 📚</p>
+                        </div>
+                    </div>
+                `;
+                setStatus('Sẵn sàng', 'green');
+            }
+        }
+
+        // Focus input on load
+        window.addEventListener('load', () => {
+            userInput.focus();
+            setStatus('Sẵn sàng', 'green');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1223 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Code highlighting
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=tb,
+    columns=fullflexible,
+    language=Python,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    showstringspaces=false
+}
+
+% Cấu hình header/footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{Báo cáo Giữa Kỳ - AI Engineer}
+
+% Tiêu đề
+\title{\textbf{BÁO CÁO GIỮA KỲ}\\
+\Large{Định hướng Nghề nghiệp \& Kỹ năng Số}\\
+\large{AI Engineer - Full Stack}}
+\author{Tên: Đinh Tin\\MSSV: 49.01.104.151\\Chuyên ngành: Công nghệ Thông tin}
+\date{Ngày nộp: \today}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+% ============================================================================
+% CHƯƠNG 1: GIỚI THIỆU CÁ NHÂN & MỤC TIÊU NGHỀ NGHIỆP
+% ============================================================================
+
+\section{Giới thiệu cá nhân \& Mục tiêu Nghề nghiệp}
+
+\subsection{Thông tin sinh viên}
+\begin{itemize}
+    \item \textbf{Họ và tên:} Đinh Tin
+    \item \textbf{MSSV:} 49.01.104.151
+    \item \textbf{Chuyên ngành:} Công nghệ Thông tin
+    \item \textbf{Năm học:} Năm 3+ (Sắp tốt nghiệp)
+\end{itemize}
+
+\subsection{Lý do chọn ngành CNTT}
+
+Tôi chọn CNTT vì đam mê xây dựng các hệ thống thông minh và quan tâm đến cách máy tính có thể tự học từ dữ liệu. Tôi cảm thấy thú vị với AI, Machine Learning, và các ứng dụng thực tế của nó. Mục tiêu của tôi là trở thành một AI Engineer toàn diện, không chỉ chuyên sâu về Deep Learning mà còn có khả năng thiết kế, triển khai và tối ưu hóa các hệ thống AI từ đầu đến cuối.
+
+\subsection{Định hướng Nghề nghiệp dự kiến}
+
+\textbf{Lĩnh vực chính:} AI Engineer / Machine Learning Engineer (Full Stack)
+
+\textbf{Các hướng quan tâm:}
+\begin{itemize}
+    \item \textbf{Machine Learning:} Supervised learning, unsupervised learning, reinforcement learning
+    \item \textbf{Deep Learning:} Computer Vision, NLP, Generative AI
+    \item \textbf{Large Language Models (LLM):} Fine-tuning, prompt engineering, AI applications (Gemini, GPT, etc.)
+    \item \textbf{Data Engineering:} Data pipeline, ETL, data preprocessing
+    \item \textbf{MLOps \& Production:} Model deployment, monitoring, A/B testing, optimization
+\end{itemize}
+
+\textbf{Công ty mục tiêu:} Google, Meta/Facebook, Amazon, Microsoft, OpenAI, hoặc startup AI tại Việt Nam (Zalo AI, FPT.AI, VinAI, Zent AI)
+
+\subsection{Mục tiêu ngắn hạn (6-12 tháng)}
+
+\begin{enumerate}
+    \item Hoàn thành \textbf{ít nhất 8-10 chứng chỉ} về AI/ML/LLM (đã có: Python, Gemini)
+    \item Xây dựng \textbf{4-5 dự án AI production-ready}:
+        \begin{itemize}
+            \item Machine Learning baseline: Classification/Regression project
+            \item Deep Learning: Computer Vision hoặc NLP project
+            \item LLM Application: Chatbot, RAG system, or text processing
+            \item Capstone: Full-stack AI application (Data → Model → API → UI)
+        \end{itemize}
+    \item Có \textbf{Portfolio chuyên nghiệp} trên GitHub Pages + LinkedIn optimized
+    \item Chuẩn bị thực tập/việc làm tại công ty tech
+    \item Thông thạo MLOps tools: Docker, CI/CD, Cloud platforms (GCP/AWS/Azure)
+\end{enumerate}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 2: DIGITAL SKILLS & KỸ NĂNG NỀN TẢNG
+% ============================================================================
+
+\section{Digital Skills \& Kỹ năng Nền tảng}
+
+\subsection{Python Programming}
+
+\textbf{Chứng chỉ đã có:}
+\begin{itemize}
+    \item \textbf{freeCodeCamp Python Developer Certification} (22/04/2026, 300 giờ)
+\end{itemize}
+
+\textbf{Kỹ năng đã học:}
+\begin{itemize}
+    \item Data types, control flow, functions, OOP
+    \item List comprehensions, generators, decorators
+    \item File I/O, error handling
+    \item Working with libraries: NumPy, Pandas, Matplotlib
+    \item Package management (pip, virtual environments)
+\end{itemize}
+
+\textbf{Ứng dụng thực tế:}
+\begin{itemize}
+    \item Data preprocessing \& cleaning trong projects
+    \item Feature engineering cho ML models
+    \item API development with Flask/FastAPI
+    \item Building Streamlit applications
+\end{itemize}
+
+\subsection{Google AI \& Gemini}
+
+\textbf{Chứng chỉ đã có:}
+\begin{itemize}
+    \item \textbf{Google Gemini Certified Student - University} (03/01/2026 - 03/01/2029)
+\end{itemize}
+
+\textbf{Kỹ năng đã học:}
+\begin{itemize}
+    \item Google AI platform overview
+    \item Gemini API integration \& usage
+    \item Prompt engineering techniques
+    \item Building AI applications with Google tools
+\end{itemize}
+
+\textbf{Ứng dụng thực tế:}
+\begin{itemize}
+    \item Đang xây dựng Vietnamese Chatbot sử dụng Gemini API
+    \item Prompt optimization cho natural conversations
+    \item Tiếng Việt support \& localization
+\end{itemize}
+
+\subsection{Git \& GitHub}
+
+\textbf{Mô tả:} Hệ thống quản lý phiên bản code, GitHub cho collaboration.
+
+\textbf{Kỹ năng đã học:}
+\begin{itemize}
+    \item Clone, commit, push, pull workflows
+    \item Branching strategies (main, dev branches)
+    \item Pull requests \& code review
+    \item GitHub Actions cho CI/CD automation
+    \item Collaborating on team projects
+    \item Repository management \& documentation
+\end{itemize}
+
+\textbf{Ứng dụng thực tế:}
+Hiện tại quản lý 3 repositories:
+\begin{itemize}
+    \item \url{https://github.com/Tindinhh/PTTKHDT}
+    \item \url{https://github.com/Tindinhh/fuzzy-medical}
+    \item \url{https://github.com/Tindinhh/shopquanaoWeb}
+\end{itemize}
+
+\subsection{Linux / Command Line Interface (CLI)}
+
+\textbf{Kỹ năng đã học:}
+\begin{itemize}
+    \item File navigation \& manipulation (cd, ls, mkdir, rm)
+    \item Package management (apt, pip, npm)
+    \item SSH \& remote server connections
+    \item Environment setup \& configuration
+    \item Running training jobs \& scripts
+    \item Process management \& monitoring
+\end{itemize}
+
+\subsection{LaTeX \& Academic Writing}
+
+\textbf{Kỹ năng đã học:}
+\begin{itemize}
+    \item Document structure \& formatting
+    \item Mathematical equations \& symbols
+    \item Inserting images, figures, tables
+    \item Bibliography \& citation management
+    \item Using Overleaf (online LaTeX editor)
+    \item Creating professional reports \& papers
+\end{itemize}
+
+\subsection{Công cụ Cộng tác \& Productivity}
+
+\textbf{Google Workspace:}
+\begin{itemize}
+    \item \textbf{Google Docs:} Collaborative document editing
+    \item \textbf{Google Sheets:} Data analysis, shared spreadsheets
+    \item \textbf{Google Slides:} Presentation creation
+    \item Ứng dụng thực tế: Shared project planning, team documentation
+\end{itemize}
+
+\textbf{Project Management Tools:}
+\begin{itemize}
+    \item \textbf{Trello:} Task management, Kanban boards
+    \item \textbf{Jira:} Issue tracking, sprint planning (learning)
+    \item Ứng dụng thực tế: Organizing project tasks, team coordination
+\end{itemize}
+
+\textbf{Communication Tools:}
+\begin{itemize}
+    \item \textbf{Discord:} Community \& team chat
+    \item \textbf{Telegram:} Group notifications \& bot integration
+    \item Ứng dụng thực tế: Real-time collaboration, project updates
+\end{itemize}
+
+\subsection{AI/ML Tools \& Frameworks}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|p{5cm}|}
+\hline
+\textbf{Tool/Library} & \textbf{Ứng dụng \& Kỹ năng} \\
+\hline
+NumPy & Numerical computing, array operations, linear algebra \\
+\hline
+Pandas & Data manipulation, EDA, cleaning, aggregation \\
+\hline
+Matplotlib/Seaborn & Data visualization, plotting, dashboard creation \\
+\hline
+Scikit-learn & Classical ML (classification, regression, clustering) \\
+\hline
+TensorFlow/Keras & Deep learning, neural networks, CNN, RNN \\
+\hline
+PyTorch & Advanced DL, research, production models \\
+\hline
+Google Gemini SDK & LLM integration, API usage, prompt engineering \\
+\hline
+Streamlit & Building interactive web apps without frontend code \\
+\hline
+Jupyter Notebook & Interactive coding, experimentation, EDA \\
+\hline
+Docker & Containerization, reproducible environments \\
+\hline
+FastAPI/Flask & Building ML APIs, REST endpoints \\
+\hline
+\end{tabular}
+}
+\caption{Python Libraries \& AI/ML Tools}
+\end{table}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 3: ROADMAP HỌC TẬP \& NGHỀ NGHIỆP CÁ NHÂN
+% ============================================================================
+
+\section{Roadmap Học tập \& Nghề nghiệp Cá nhân}
+
+\subsection{Timeline Overview (6-12 tháng)}
+
+\begin{center}
+\begin{tikzpicture}[x=1.5cm, y=1cm]
+    % Timeline line
+    \draw[thick, gray] (0,0) -- (12,0);
+    
+    % Months
+    \foreach \x/\month in {0/T1, 1.5/T2, 3/T3, 4.5/T4, 6/T5, 7.5/T6, 9/T7, 10.5/T8}{
+        \draw (\x,0) -- (\x,-0.3);
+        \node[below] at (\x,-0.5) {\small \month};
+    }
+    
+    % Phases
+    \draw[fill=blue!30, thick] (0,1) rectangle (1.5,1.5) node[center] {\small Python};
+    \draw[fill=green!30, thick] (1.5,1) rectangle (3,1.5) node[center] {\small ML};
+    \draw[fill=orange!30, thick] (3,1) rectangle (4.5,1.5) node[center] {\small DL};
+    \draw[fill=red!30, thick] (4.5,1) rectangle (6,1.5) node[center] {\small PyTorch};
+    \draw[fill=purple!30, thick] (6,1) rectangle (7.5,1.5) node[center] {\small NLP/LLM};
+    \draw[fill=pink!30, thick] (7.5,1) rectangle (9,1.5) node[center] {\small MLOps};
+    \draw[fill=cyan!30, thick] (9,1) rectangle (10.5,1.5) node[center] {\small Capstone};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Giai đoạn 1: Tháng 1-2 - Python \& Data Foundation}
+
+\textbf{Mục tiêu:} Consolidate Python skills, data manipulation, analysis
+
+\textbf{Kỹ năng cần đạt:}
+\begin{itemize}
+    \item Python mastery (✓ freeCodeCamp cert)
+    \item NumPy advanced operations
+    \item Pandas EDA \& data wrangling
+    \item Data visualization best practices
+\end{itemize}
+
+\textbf{Chứng chỉ:}
+\begin{itemize}
+    \item Google Cloud Skills Boost: Data Engineering Fundamentals (20 giờ)
+    \item Kaggle: Data Analysis microcourse (Free, 5-10 giờ)
+\end{itemize}
+
+\textbf{Dự án:} End-to-end EDA project (UCI dataset hoặc Kaggle competition)
+
+---
+
+\subsection{Giai đoạn 2: Tháng 3-4 - Machine Learning Fundamentals}
+
+\textbf{Mục tiêu:} ML basics, supervised learning, model evaluation
+
+\textbf{Kỹ năng cần đạt:}
+\begin{itemize}
+    \item Supervised learning concepts
+    \item Linear \& logistic regression
+    \item Decision trees, ensemble methods
+    \item Cross-validation, hyperparameter tuning
+    \item Scikit-learn workflows
+    \item Evaluation metrics (accuracy, precision, recall, F1, AUC-ROC)
+\end{itemize}
+
+\textbf{Chứng chỉ:}
+\begin{itemize}
+    \item Coursera: Machine Learning Specialization (Andrew Ng) - 30-40 giờ
+\end{itemize}
+
+\textbf{Dự án chính:}
+\begin{itemize}
+    \item Dataset: Breast Cancer, Titanic, hoặc Kaggle dataset
+    \item Models: Logistic Regression, Random Forest, XGBoost
+    \item Target: 85-90\% accuracy
+    \item GitHub: Link to repository with README
+\end{itemize}
+
+---
+
+\subsection{Giai đoạn 3: Tháng 5-6 - Deep Learning \& Computer Vision}
+
+\textbf{Mục tiêu:} Neural networks, CNN, image processing
+
+\textbf{Kỹ năng cần đạt:}
+\begin{itemize}
+    \item ANN architecture \& backpropagation intuition
+    \item Convolutional Neural Networks (CNN)
+    \item Activation functions, loss functions, optimizers
+    \item TensorFlow/Keras API mastery
+    \item Image preprocessing \& data augmentation
+    \item Transfer learning basics
+\end{itemize}
+
+\textbf{Chứng chỉ:}
+\begin{itemize}
+    \item TensorFlow Developer Certificate (preparation) - 40-60 giờ
+    \item Coursera: Deep Learning Specialization (Part 1-3) - 30-50 giờ
+\end{itemize}
+
+\textbf{Dự án:}
+\begin{itemize}
+    \item Image Classification (MNIST hoặc CIFAR-10)
+    \item Model: CNN with Conv2D → MaxPool → Dense layers
+    \item Target: 95\%+ (MNIST) hoặc 85\%+ (CIFAR-10) accuracy
+    \item Framework: TensorFlow/Keras
+\end{itemize}
+
+---
+
+\subsection{Giai đoạn 4: Tháng 7-8 - PyTorch \& LLM/NLP}
+
+\textbf{Mục tiêu:} Transfer learning, PyTorch, LLM fundamentals with Gemini
+
+\textbf{Kỹ năng cần đạt:}
+\begin{itemize}
+    \item PyTorch essentials (tensors, autograd, nn.Module)
+    \item Transfer learning \& pre-trained models (ResNet, ViT)
+    \item RNN, LSTM, Transformer basics
+    \item Prompt engineering for LLMs
+    \item Gemini API usage (✓ cert already)
+    \item Fine-tuning LLMs
+    \item Building chatbots \& QA systems
+\end{itemize}
+
+\textbf{Chứng chỉ:}
+\begin{itemize}
+    \item TensorFlow Developer Certificate (completion exam) - \$49
+    \item Coursera: PyTorch for Deep Learning - 25-35 giờ
+    \item Google AI Studio: Advanced Prompt Engineering (Free)
+\end{itemize}
+
+\textbf{Dự án chính:}
+\begin{itemize}
+    \item \textbf{Vietnamese Chatbot với Gemini API} (In Progress - Chương 5)
+    \item Streamlit UI + Gemini backend
+    \item Vietnamese language support
+    \item Chat history management
+    \item Customizable system prompts
+\end{itemize}
+
+---
+
+\subsection{Giai đoạn 5: Tháng 9-10 - MLOps \& Production}
+
+\textbf{Mục tiêu:} Model deployment, monitoring, optimization, CI/CD
+
+\textbf{Kỹ năng cần đạt:}
+\begin{itemize}
+    \item Model serialization (joblib, ONNX)
+    \item Docker containerization
+    \item API development (FastAPI, Flask)
+    \item Cloud deployment (GCP Cloud Run, AWS)
+    \item Model monitoring \& logging
+    \item A/B testing \& experimentation
+    \item CI/CD pipelines
+\end{itemize}
+
+\textbf{Chứng chỉ:}
+\begin{itemize}
+    \item Google Cloud: MLOps Fundamentals - 25-30 giờ
+    \item Linux Academy: Docker \& Kubernetes basics - 20-30 giờ
+\end{itemize}
+
+---
+
+\subsection{Giai đoạn 6: Tháng 11-12 - Capstone \& Job Prep}
+
+\textbf{Capstone Project:} Full-stack AI system
+
+\textbf{Possible Topics:}
+\begin{itemize}
+    \item Medical Image Analysis (X-ray/diagnosis)
+    \item Vietnamese NLP system (sentiment + chatbot)
+    \item Recommendation engine (products/content)
+    \item Time series forecasting (stock/weather)
+    \item Vision + Language project (image captioning)
+\end{itemize}
+
+\textbf{Requirements:}
+\begin{itemize}
+    \item Data pipeline (ETL, preprocessing)
+    \item Model training \& evaluation
+    \item API backend (FastAPI)
+    \item Frontend (Streamlit or React)
+    \item Docker deployment
+    \item Live demo + documentation
+\end{itemize}
+
+\textbf{Job Preparation:}
+\begin{itemize}
+    \item Professional portfolio on GitHub Pages
+    \item Updated CV \& Resume
+    \item LinkedIn profile optimization
+    \item LeetCode practice (coding interviews)
+    \item System design interview prep
+    \item Networking \& community engagement
+    \item Apply to internships/entry-level roles
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 4: CHỨNG CHỈ \& KHÓA HỌC TRỰC TUYẾN
+% ============================================================================
+
+\section{Chứng chỉ \& Khóa học Trực tuyến}
+
+\subsection{Tổng quan Chứng chỉ}
+
+Dự kiến hoàn thành \textbf{8-10 chứng chỉ} liên quan AI/ML/LLM trong 6-12 tháng.
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|p{3.5cm}|p{2cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Khóa học} & \textbf{Nền tảng} & \textbf{Thời gian} & \textbf{Status} \\
+\hline
+\textbf{freeCodeCamp: Python Developer} & freeCodeCamp & 300 giờ & \textbf{✓ DONE (04/2026)} \\
+\hline
+\textbf{Google: Gemini Certified} & Google for Education & Variable & \textbf{✓ DONE (01/2026)} \\
+\hline
+Google Cloud: Data Fundamentals & Coursera & 20 giờ & In Progress \\
+\hline
+Coursera: Machine Learning & Coursera & 30-40 giờ & Planned \\
+\hline
+TensorFlow Developer Certificate & Google & 40-60 giờ & Planned \\
+\hline
+Coursera: PyTorch for Deep Learning & Coursera & 25-35 giờ & Planned \\
+\hline
+Coursera: Natural Language Processing & Coursera & 50-80 giờ & Planned \\
+\hline
+Google Cloud: MLOps & Coursera & 25-30 giờ & Planned \\
+\hline
+\end{tabular}
+}
+\caption{Chứng chỉ đã \& sắp hoàn thành}
+\end{table}
+
+\subsection{Chi tiết Chứng chỉ Đã Hoàn thành}
+
+\subsubsection{1. freeCodeCamp - Python Developer Certification ✓}
+
+\textbf{Chi tiết:}
+\begin{itemize}
+    \item \textbf{Nền tảng:} freeCodeCamp (YouTube + Platform)
+    \item \textbf{Hoàn thành:} 22 tháng 04 năm 2026
+    \item \textbf{Thời gian học:} 300 giờ
+    \item \textbf{Nội dung:} 
+    \begin{itemize}
+        \item Python fundamentals (variables, data types, control flow)
+        \item Object-Oriented Programming (OOP)
+        \item Data structures (lists, dicts, sets, tuples)
+        \item Functions \& modules
+        \item File handling \& exceptions
+        \item Working with libraries (NumPy, Pandas, Matplotlib)
+        \item API basics \& web requests
+    \end{itemize}
+    \item \textbf{Chi phí:} Miễn phí
+    \item \textbf{Link:} \url{https://freecodecamp.org/certification/tindinhh/python-for-everybody}
+    \item \textbf{Chứng chỉ:} Đã nhận (lưu trong phụ lục)
+\end{itemize}
+
+\textbf{Kỹ năng thu được:}
+\begin{itemize}
+    \item ✅ Python proficiency level: Intermediate
+    \item ✅ Can write clean, efficient Python code
+    \item ✅ Comfortable with popular data science libraries
+\end{itemize}
+
+---
+
+\subsubsection{2. Google - Gemini Certified Student ✓}
+
+\textbf{Chi tiết:}
+\begin{itemize}
+    \item \textbf{Nền tảng:} Google for Education
+    \item \textbf{Hoàn thành:} 03 tháng 01 năm 2026
+    \item \textbf{Hạn hiệu lực:} 03 tháng 01 năm 2029 (3 năm)
+    \item \textbf{Cấp độ:} University-level qualification
+    \item \textbf{Nội dung:}
+    \begin{itemize}
+        \item Introduction to Google AI
+        \item Gemini API fundamentals
+        \item Prompt engineering techniques
+        \item Use cases \& applications
+        \item Best practices for AI integration
+    \end{itemize}
+    \item \textbf{Chi phí:} Miễn phí
+    \item \textbf{Chứng chỉ:} Đã nhận (lưu trong phụ lục)
+\end{itemize}
+
+\textbf{Kỹ năng thu được:}
+\begin{itemize}
+    \item ✅ Understanding Google's AI ecosystem
+    \item ✅ Gemini API integration \& best practices
+    \item ✅ Prompt engineering for better outputs
+    \item ✅ Building LLM-powered applications
+\end{itemize}
+
+---
+
+\subsection{Chi tiết Chứng chỉ Sắp Học}
+
+\subsubsection{3. Google Cloud Skills Boost - Data Engineering Fundamentals}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Coursera (Google Cloud)
+    \item \textbf{Nội dung:} Cloud data platforms, BigQuery, data pipelines, ETL
+    \item \textbf{Thời gian:} 20 giờ (Tháng 1-2)
+    \item \textbf{Chi phí:} Miễn phí (course), \$29 (certificate)
+    \item \textbf{Link:} \url{https://www.coursera.org/professional-certificates/gcp-data-engineering}
+\end{itemize}
+
+\subsubsection{4. Coursera - Machine Learning Specialization (Andrew Ng)}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Coursera
+    \item \textbf{Nội dung:}
+    \begin{itemize}
+        \item Supervised vs. Unsupervised Learning
+        \item Linear \& Logistic Regression
+        \item Neural Networks (basics)
+        \item Decision Trees \& Tree Ensembles
+        \item Clustering \& Dimensionality Reduction
+    \end{itemize}
+    \item \textbf{Thời gian:} 30-40 giờ (Tháng 3-4)
+    \item \textbf{Chi phí:} \$39/tháng (hoặc Coursera Plus)
+    \item \textbf{Link:} \url{https://www.coursera.org/specializations/machine-learning}
+\end{itemize}
+
+\subsubsection{5. TensorFlow Developer Certificate}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Google (Coursera)
+    \item \textbf{Nội dung:} TensorFlow 2.x, CNNs, RNNs, NLP, data pipelines
+    \item \textbf{Thời gian chuẩn bị:} 40-60 giờ (Tháng 5-7)
+    \item \textbf{Chi phí:} \$49 (exam fee)
+    \item \textbf{Format:} 5-hour online proctored exam
+    \item \textbf{Link:} \url{https://www.tensorflow.org/certificate}
+\end{itemize}
+
+\subsubsection{6. Coursera - PyTorch for Deep Learning}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Coursera
+    \item \textbf{Nội dung:} PyTorch fundamentals, custom models, transfer learning, NLP
+    \item \textbf{Thời gian:} 25-35 giờ (Tháng 7-8)
+    \item \textbf{Chi phí:} \$39/tháng
+    \item \textbf{Link:} \url{https://www.coursera.org/specializations/pytorch}
+\end{itemize}
+
+\subsubsection{7. Coursera - Natural Language Processing Specialization}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Coursera
+    \item \textbf{Nội dung:} NLP fundamentals, RNN, LSTM, attention, Transformers, BERT
+    \item \textbf{Thời gian:} 50-80 giờ (Tháng 8-10)
+    \item \textbf{Chi phí:} \$39/tháng
+    \item \textbf{Link:} \url{https://www.coursera.org/specializations/natural-language-processing}
+\end{itemize}
+
+\subsubsection{8. Google Cloud - MLOps Fundamentals}
+
+\begin{itemize}
+    \item \textbf{Nền tảng:} Coursera (Google Cloud)
+    \item \textbf{Nội dung:} ML pipeline automation, model deployment, monitoring, governance
+    \item \textbf{Thời gian:} 25-30 giờ (Tháng 10-11)
+    \item \textbf{Chi phí:} \$30-50
+    \item \textbf{Link:} \url{https://www.coursera.org/professional-certificates/preparing-for-google-cloud-mlops-engineer-professional-certificate}
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 5: VIETNAMESE CHATBOT - TÌM HIỂU CHUYÊN SÂU
+% ============================================================================
+
+\section{Tìm hiểu chuyên sâu: Vietnamese Chatbot với Gemini API}
+
+\subsection{Tổng quan Project}
+
+\textbf{Tên project:} Vietnamese AI Chatbot
+
+\textbf{Mô tả ngắn:} Một ứng dụng chatbot thông minh được xây dựng bằng Streamlit \& Google Gemini API, hỗ trợ hoàn toàn tiếng Việt, có giao diện đẹp, dễ sử dụng.
+
+\textbf{Công nghệ chính:}
+\begin{itemize}
+    \item \textbf{Frontend:} Streamlit (Python-based web framework)
+    \item \textbf{AI Model:} Google Gemini 1.5 (Flash \& Pro)
+    \item \textbf{Backend:} Python with google-generativeai SDK
+    \item \textbf{Deployment:} Streamlit Cloud / Docker
+\end{itemize}
+
+\textbf{Repository:} \url{https://github.com/Tindinhh/vietnamese-chatbot}
+
+---
+
+\subsection{Kiến trúc \& Mô hình Hoạt động}
+
+\subsubsection{Kiến trúc hệ thống}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+    \node (user) [draw, rectangle, fill=blue!20] {User (Frontend)};
+    \node (streamlit) [draw, rectangle, fill=green!20, right of=user] {Streamlit App};
+    \node (gemini) [draw, rectangle, fill=orange!20, right of=streamlit] {Gemini API};
+    \node (memory) [draw, rectangle, fill=yellow!20, below of=streamlit] {Chat History};
+    
+    \draw[->] (user) -- node[above] {Input} (streamlit);
+    \draw[->] (streamlit) -- node[above] {Prompt} (gemini);
+    \draw[->] (gemini) -- node[above] {Response} (streamlit);
+    \draw[->] (streamlit) -- node[right] {Display} (user);
+    \draw[<->] (streamlit) -- (memory);
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Quy trình xử lý tin nhắn}
+
+\begin{enumerate}
+    \item \textbf{User Input:} Người dùng nhập câu hỏi vào Streamlit UI
+    \item \textbf{Add to History:} Tin nhắn được lưu vào session state (chat history)
+    \item \textbf{Build Conversation:} Tất cả tin nhắn trước đó được build thành context
+    \item \textbf{Send to Gemini:} Context + system prompt được gửi tới Gemini API
+    \item \textbf{Generate Response:} Gemini tạo response phù hợp (tiếng Việt)
+    \item \textbf{Display Result:} Response được hiển thị trên UI
+    \item \textbf{Save to Memory:} Response được lưu vào chat history
+\end{enumerate}
+
+---
+
+\subsection{Các Tính năng Chi tiết}
+
+\subsubsection{1. Multi-Model Support}
+\begin{itemize}
+    \item \textbf{Gemini 1.5 Flash:} Nhanh, giá rẻ (ideal for real-time chat)
+    \item \textbf{Gemini 1.5 Pro:} Mạnh mẽ, chính xác (for complex tasks)
+    \item User có thể chọn model từ sidebar
+\end{itemize}
+
+\subsubsection{2. Conversation Context}
+\begin{itemize}
+    \item Bot nhớ toàn bộ lịch sử trò chuyện
+    \item Có thể follow-up \& hỏi chi tiết hơn
+    \item Session-based storage (reset khi tắt app)
+\end{itemize}
+
+\subsubsection{3. System Prompt Customization}
+\begin{itemize}
+    \item Người dùng có thể tùy chỉnh cách bot hành xử
+    \item Default: Tiếng Việt, tên "TinBot", thân thiện
+    \item Có thể thay đổi tính cách, lĩnh vực chuyên môn
+\end{itemize}
+
+\subsubsection{4. Rich User Interface}
+\begin{itemize}
+    \item Clean, modern Streamlit UI
+    \item Responsive layout (desktop \& mobile)
+    \item Timestamps cho mỗi tin nhắn
+    \item Custom CSS styling
+    \item User \& Bot messages được phân biệt rõ ràng
+\end{itemize}
+
+---
+
+\subsection{Ứng dụng Thực tế}
+
+\subsubsection{Use Cases}
+
+\begin{enumerate}
+    \item \textbf{Học tập:} Giải thích khái niệm, giúp làm bài tập
+    \item \textbf{Lập trình:} Debug code, giải đáp thắc mắc kỹ thuật
+    \item \textbf{Cuộc sống:} Tư vấn, motivational talks, life advice
+    \item \textbf{Sáng tạo:} Viết content, brainstorm ideas
+    \item \textbf{Ngôn ngữ:} Dạy kèm Tiếng Anh/Nhật, translation
+    \item \textbf{Phân tích:} Phân tích dữ liệu, giải thích khái niệm
+\end{enumerate}
+
+\subsubsection{Code Sample}
+
+\begin{lstlisting}
+# Initialize Gemini model
+model = genai.GenerativeModel(model_choice)
+
+# Build conversation history
+conversation_history = []
+for msg in st.session_state.messages:
+    conversation_history.append({
+        "role": msg["role"],
+        "parts": [msg["content"]]
+    })
+
+# Get response from Gemini
+response = model.generate_content(
+    contents=conversation_history,
+    system_instruction=system_prompt,
+    generation_config=genai.types.GenerationConfig(
+        temperature=0.7,
+        max_output_tokens=1024,
+    )
+)
+
+# Display response
+st.write(response.text)
+\end{lstlisting}
+
+---
+
+\subsection{Ưu điểm \& Nhược điểm}
+
+\subsubsection{✅ Ưu điểm}
+
+\begin{itemize}
+    \item \textbf{Dễ sử dụng:} Không cần kỹ thuật, AI được tích hợp sẵn
+    \item \textbf{Nhanh chóng:} Instant deployment, không cần setup phức tạp
+    \item \textbf{Scalable:} Gemini API handle traffic lớn
+    \item \textbf{Cost-effective:} Free tier available, pay-as-you-go
+    \item \textbf{Tiếng Việt 100\%:} Native Vietnamese support
+    \item \textbf{Flexible:} Customizable system prompt \& model choice
+    \item \textbf{Educational:} Great for learning LLM integration
+    \item \textbf{Production-ready:} Can deploy to Streamlit Cloud với 1 click
+\end{itemize}
+
+\subsubsection{❌ Nhược điểm}
+
+\begin{itemize}
+    \item \textbf{API Dependency:} Cần internet, không hoạt động offline
+    \item \textbf{Rate Limits:} Gemini API có rate limiting (15 req/min for free)
+    \item \textbf{Cost at scale:} Pricing có thể tăng với high volume
+    \item \textbf{Limited Memory:} Session-based, không persistent storage across sessions
+    \item \textbf{No Fine-tuning:} Sử dụng pre-trained model, không thể customize deep
+    \item \textbf{Hallucinations:} LLM có thể generate incorrect information
+\end{itemize}
+
+---
+
+\subsection{Lý do Chọn Project Này}
+
+\begin{enumerate}
+    \item \textbf{Relevant với Gemini Cert:} Tận dụng certification đã có
+    \item \textbf{Trending Technology:} LLM applications đang hot trend
+    \item \textbf{Full-Stack Example:} Covers: AI integration, UI/UX, deployment
+    \item \textbf{Portfolio Strong:} Impressive portfolio piece cho job applications
+    \item \textbf{Practical Skills:} Learn real-world API integration, Streamlit, etc.
+    \item \textbf{Demo-friendly:} Easy to showcase, impress potential employers
+    \item \textbf{Extensible:} Can add more features (voice, image, etc.)
+\end{enumerate}
+
+---
+
+\subsection{GitHub Repository}
+
+\textbf{Link:} \url{https://github.com/Tindinhh/vietnamese-chatbot}
+
+\textbf{Repository Contents:}
+\begin{itemize}
+    \item \texttt{app.py} - Main Streamlit application
+    \item \texttt{requirements.txt} - Python dependencies
+    \item \texttt{.env.example} - Environment variables template
+    \item \texttt{.gitignore} - Git ignore rules (protect API keys!)
+    \item \texttt{README.md} - Comprehensive documentation
+    \item \texttt{docs/} - Additional documentation (setup, examples)
+\end{itemize}
+
+\textbf{README highlights:}
+\begin{itemize}
+    \item Quick start guide (4 steps to run)
+    \item Feature overview
+    \item Architecture diagram
+    \item Deployment instructions
+    \item Troubleshooting guide
+    \item Future roadmap
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 6: CV HỌC THUẬT \& PORTFOLIO CÁ NHÂN
+% ============================================================================
+
+\section{CV Học thuật \& Portfolio Cá nhân}
+
+\subsection{CV LaTeX}
+
+Tôi đã tạo CV chuyên nghiệp bằng LaTeX theo chuẩn IT student.
+
+\textbf{Cấu trúc CV:}
+\begin{itemize}
+    \item \textbf{Header:} Name, email, phone, GitHub, LinkedIn, website
+    \item \textbf{Professional Summary:} 2-3 lines về mục tiêu \& specialty
+    \item \textbf{Education:} University info, GPA, expected graduation
+    \item \textbf{Certifications:}
+    \begin{itemize}
+        \item freeCodeCamp: Python Developer (April 2026)
+        \item Google: Gemini Certified Student (Jan 2026 - Jan 2029)
+        \item [Others as completed]
+    \end{itemize}
+    \item \textbf{Skills:} Organized by category
+    \begin{itemize}
+        \item Languages: Python, SQL, Bash
+        \item ML/DL: TensorFlow, PyTorch, Scikit-learn
+        \item LLM: Gemini API, Prompt Engineering
+        \item Tools: Docker, Git, Streamlit, FastAPI
+        \item Cloud: GCP (learning), AWS (learning)
+    \end{itemize}
+    \item \textbf{Projects:} 4-5 main projects with descriptions
+    \item \textbf{Experience:} Internships, freelance work (if any)
+\end{itemize}
+
+\textbf{CV Link:} \url{https://github.com/[username]/resume/blob/main/CV.pdf}
+
+\subsection{Portfolio GitHub Pages}
+
+\textbf{Status:} In Development
+
+\textbf{Website:} \url{https://tindinhh.github.io} (to be created)
+
+\textbf{Planned Sections:}
+
+\begin{enumerate}
+    \item \textbf{About Me}
+    \begin{itemize}
+        \item Bio: "AI Engineer passionate about ML/LLMs"
+        \item Focus areas
+        \item Contact information
+    \end{itemize}
+
+    \item \textbf{Featured Projects} (4-5 projects)
+    \begin{itemize}
+        \item Vietnamese Chatbot (Current)
+        \item ML Classification Project
+        \item Computer Vision Project
+        \item Capstone Project
+    \end{itemize}
+
+    \item \textbf{Certifications}
+    \begin{itemize}
+        \item freeCodeCamp Python Developer
+        \item Google Gemini Certified Student
+        \item [Others as completed]
+    \end{itemize}
+
+    \item \textbf{Blog} (Optional)
+    \begin{itemize}
+        \item Technical write-ups
+        \item Learning progress
+        \item Industry insights
+    \end{itemize}
+
+    \item \textbf{Contact}
+    \begin{itemize}
+        \item Email form
+        \item Social links
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Tech Stack:}
+\begin{itemize}
+    \item GitHub Pages (free hosting)
+    \item Jekyll with minimal theme
+    \item Markdown files
+    \item Custom CSS for styling
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 7: HỒ SƠ LINKEDIN CÁ NHÂN
+% ============================================================================
+
+\section{Hồ sơ LinkedIn Cá nhân}
+
+\textbf{Link LinkedIn:} \url{https://www.linkedin.com/in/tinn-đinh-3523711ab/}
+
+\subsection{Profile Sections}
+
+\subsubsection{Headline}
+\begin{quote}
+``AI Engineer | Machine Learning | Python | TensorFlow \& PyTorch | Gemini API | Open to Opportunities''
+\end{quote}
+
+\subsubsection{About Section}
+\begin{quote}
+``I'm a 3rd-year IT student passionate about Artificial Intelligence and Machine Learning, with expertise in:
+
+• Classical \& Deep Learning (Scikit-learn, TensorFlow, PyTorch)\\
+• Large Language Models (Gemini API, Prompt Engineering)\\
+• Computer Vision \& NLP Applications\\
+• Data Engineering \& MLOps (Docker, Cloud deployment)
+
+📜 Certifications:
+✓ freeCodeCamp: Python Developer (300 hours)\\
+✓ Google: Gemini Certified Student
+
+Currently building: Vietnamese Chatbot with Gemini API
+
+Open to: Internships, full-time roles, collaborations, \& networking.
+
+Let's connect! 🤝
+''
+\end{quote}
+
+\subsubsection{Skills Section}
+\begin{itemize}
+    \item Python Programming
+    \item Machine Learning
+    \item Deep Learning
+    \item Natural Language Processing
+    \item Computer Vision
+    \item TensorFlow
+    \item PyTorch
+    \item Google Gemini API
+    \item Streamlit
+    \item Data Analysis
+    \item SQL
+    \item Docker
+    \item Git \& GitHub
+    \item AWS / Google Cloud
+\end{itemize}
+
+\subsubsection{Certifications}
+\begin{itemize}
+    \item freeCodeCamp: Python Developer Certification (April 2026)
+    \item Google: Gemini Certified Student (January 2026 - January 2029)
+\end{itemize}
+
+\subsubsection{Projects Section}
+\begin{itemize}
+    \item Vietnamese Chatbot with Gemini API
+    \item [Other projects to be added]
+\end{itemize}
+
+---
+
+\subsection{Recommendations Strategy}
+
+\begin{itemize}
+    \item Request từ professors \& mentors
+    \item Get endorsements từ AI/ML professionals
+    \item Engage in community discussions
+    \item Share project insights \& learning
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% CHƯƠNG 8: TỰ ĐÁNH GIÁ \& ĐỊNH HƯỚNG TIẾP THEO
+% ============================================================================
+
+\section{Tự đánh giá \& Định hướng Tiếp theo}
+
+\subsection{Điểm Mạnh Hiện Tại}
+
+\begin{enumerate}
+    \item \textbf{Passion \& Motivation:} Đam mê AI/ML từ sâu
+    \item \textbf{Self-learning ability:} Capable of learning from diverse resources independently
+    \item \textbf{Problem-solving:} Good at debugging \& troubleshooting technical issues
+    \item \textbf{Persistence:} Willing to invest time \& effort into learning
+    \item \textbf{Early wins:} 
+    \begin{itemize}
+        \item Python certification (300 hours!)
+        \item Gemini certification (active, til 2029)
+        \item Building real projects (Vietnamese Chatbot)
+    \end{itemize}
+    \item \textbf{Git proficiency:} Thông thạo version control
+\end{enumerate}
+
+\subsection{Điểm Yếu Cần Cải Thiện}
+
+\begin{enumerate}
+    \item \textbf{Mathematics Foundation:} 
+    \begin{itemize}
+        \item Need stronger linear algebra (eigenvalues, SVD)
+        \item Calculus fundamentals (for backpropagation intuition)
+        \item Probability \& statistics
+    \end{itemize}
+    
+    \item \textbf{Production Experience:}
+    \begin{itemize}
+        \item Limited real-world deployment experience
+        \item Need more hands-on with Docker, Kubernetes
+        \item MLOps practices still learning
+    \end{itemize}
+    
+    \item \textbf{Soft Skills:}
+    \begin{itemize}
+        \item Communication \& presentation skills
+        \item Technical writing for documentation
+        \item Leadership \& mentoring (future goal)
+    \end{itemize}
+    
+    \item \textbf{Breadth of Knowledge:}
+    \begin{itemize}
+        \item Limited exposure to Reinforcement Learning
+        \item Graph Neural Networks (emerging area)
+        \item Advanced time series techniques
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Action Items để Cải thiện}
+
+\subsubsection{1. Math Fundamentals (Months 1-3)}
+\begin{itemize}
+    \item \textbf{Resource:} 3Blue1Brown linear algebra course
+    \item \textbf{Practice:} Solve problems, implement from scratch
+    \item \textbf{Goal:} Understand math behind ML algorithms
+\end{itemize}
+
+\subsubsection{2. Production ML Skills (Months 4-6)}
+\begin{itemize}
+    \item \textbf{Docker:} Complete Docker tutorial, containerize projects
+    \item \textbf{CI/CD:} Set up GitHub Actions for automated testing
+    \item \textbf{Cloud:} Deploy models to GCP / AWS
+    \item \textbf{Monitoring:} Learn logging \& observability tools
+\end{itemize}
+
+\subsubsection{3. Soft Skills (Ongoing)}
+\begin{itemize}
+    \item \textbf{Speaking:} Present projects at local meetups
+    \item \textbf{Writing:} Start technical blog
+    \item \textbf{Networking:} Attend AI/ML conferences, connect with professionals
+\end{itemize}
+
+\subsubsection{4. Breadth Expansion (Months 7-12)}
+\begin{itemize}
+    \item \textbf{RL:} Study basics of Reinforcement Learning
+    \item \textbf{GNN:} Explore Graph Neural Networks
+    \item \textbf{Time Series:} Advanced forecasting techniques
+\end{itemize}
+
+\subsection{Chuẩn bị cho Đồ án Cuối Kỳ}
+
+\textbf{Timeline:} Tháng 11-12 (giả sử)
+
+\textbf{Khả năng đóng góp:}
+\begin{itemize}
+    \item \textbf{Lead AI/ML Engineer:} Chịu trách nhiệm models \& algorithms
+    \item \textbf{Data Engineer:} Design \& implement data pipelines
+    \item \textbf{Model Development:} Train, evaluate, optimize models
+    \item \textbf{Backend Development:} Build APIs (FastAPI/Flask)
+    \item \textbf{Deployment:} Docker, cloud deployment setup
+    \item \textbf{Technical Lead:} Guide team, code review, architecture
+\end{itemize}
+
+\textbf{Suitable Capstone Topics:}
+\begin{itemize}
+    \item \textbf{Medical AI:} Disease detection from X-ray/images
+    \item \textbf{NLP:} Vietnamese QA system, sentiment analysis, text classification
+    \item \textbf{Recommendation:} Content/product recommendation engine
+    \item \textbf{Time Series:} Forecasting (stock, weather, traffic)
+    \item \textbf{Vision:} Object detection, semantic segmentation
+    \item \textbf{Multimodal:} Image captioning, VQA, text-to-image
+\end{itemize}
+
+\textbf{Expected Skills by End:}
+\begin{itemize}
+    \item ✅ End-to-end ML pipeline (data → deployment)
+    \item ✅ Multiple frameworks (TensorFlow, PyTorch, Scikit-learn)
+    \item ✅ Cloud deployment experience
+    \item ✅ Team collaboration (Git, code review)
+    \item ✅ Technical documentation \& communication
+    \item ✅ Problem-solving under pressure
+\end{itemize}
+
+\newpage
+
+% ============================================================================
+% PHỤ LỤC
+% ============================================================================
+
+\appendix
+
+\section{Phụ Lục: Chứng chỉ, Screenshot \& Links}
+
+\subsection{Chứng chỉ (Certificates)}
+
+\begin{enumerate}
+    \item \textbf{freeCodeCamp: Python Developer}
+    \begin{itemize}
+        \item Date: 22/04/2026
+        \item Hours: 300 hours
+        \item Certificate: [Xem file đính kèm]
+        \item Verify: \url{https://freecodecamp.org/certification/...}
+    \end{itemize}
+
+    \item \textbf{Google: Gemini Certified Student}
+    \begin{itemize}
+        \item Date: 03/01/2026 - 03/01/2029
+        \item Level: University
+        \item Certificate: [Xem file đính kèm]
+    \end{itemize}
+\end{enumerate}
+
+\subsection{GitHub Repositories}
+
+\begin{itemize}
+    \item \textbf{Vietnamese Chatbot:} \url{https://github.com/Tindinhh/vietnamese-chatbot}
+    \item \textbf{PTTKHDT:} \url{https://github.com/Tindinhh/PTTKHDT}
+    \item \textbf{Fuzzy Medical:} \url{https://github.com/Tindinhh/fuzzy-medical}
+    \item \textbf{ShopQuanao Web:} \url{https://github.com/Tindinhh/shopquanaoWeb}
+\end{itemize}
+
+\subsection{LinkedIn Profile}
+
+\url{https://www.linkedin.com/in/tinn-đinh-3523711ab/}
+
+\textbf{Status:} Fully optimized with:
+\begin{itemize}
+    \item Professional headline
+    \item Comprehensive about section
+    \item Certifications listed
+    \item Projects showcased
+    \item Skills endorsed
+\end{itemize}
+
+\subsection{Portfolio Website}
+
+\textbf{Status:} In development
+
+\textbf{URL (to be created):} \url{https://tindinhh.github.io}
+
+\subsection{Project Links}
+
+\begin{itemize}
+    \item \textbf{Vietnamese Chatbot GitHub:} \url{https://github.com/Tindinhh/vietnamese-chatbot}
+    \item \textbf{README.md:} Comprehensive setup \& usage guide included in repo
+    \item \textbf{Deployment:} Ready to deploy on Streamlit Cloud
+\end{itemize}
+
+\subsection{Learning Resources}
+
+\textbf{Recommended Courses:}
+\begin{itemize}
+    \item Coursera: Machine Learning Specialization (Andrew Ng)
+    \item Coursera: Deep Learning Specialization (Andrew Ng)
+    \item Fast.ai: Practical Deep Learning for Coders
+    \item Google Cloud Skills Boost
+\end{itemize}
+
+\textbf{Books:}
+\begin{itemize}
+    \item ``Hands-On Machine Learning'' (Aurélien Géron)
+    \item ``Deep Learning'' (Goodfellow, Bengio, Courville)
+    \item ``Introduction to Statistical Learning'' (James et al.)
+\end{itemize}
+
+\textbf{Online Communities:}
+\begin{itemize}
+    \item Kaggle.com - Datasets \& competitions
+    \item ArXiv.org - Research papers
+    \item Papers with Code - SOTA implementations
+    \item Reddit r/MachineLearning - Discussions \& resources
+\end{itemize}
+
+% ============================================================================
+% END OF REPORT
+% ============================================================================
+
+\end{document}
