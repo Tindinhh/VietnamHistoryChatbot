@@ -1,477 +1,423 @@
-# 🇻🇳 Sử Việt Toàn Thư - Vietnamese History Chatbot
+# 🤖 Vietnamese AI Chatbot with Gemini API
 
-**Một chatbot chuyên gia lịch sử Việt Nam được xây dựng bằng Flask + Gemini AI**
+A modern, feature-rich chatbot application powered by **Google Gemini API**, built with **Streamlit** for a beautiful, interactive web interface. Fully supports Vietnamese language with natural conversation abilities.
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
-![Flask](https://img.shields.io/badge/Flask-3.0+-red?logo=flask)
-![Google Gemini](https://img.shields.io/badge/Google-Gemini%20API-gold?logo=google)
-![License](https://img.shields.io/badge/License-MIT-green)
-
-[🚀 Quick Start](#quick-start) • [📋 Features](#features) • [🛠️ Setup](#setup) • [📖 Usage](#usage) • [🌐 Deploy](#deployment)
-
-</div>
+**Live Demo:** [Streamlit Cloud Link - Coming Soon]  
+**GitHub Repository:** [https://github.com/Tindinhh/vietnamese-chatbot](https://github.com/Tindinhh/vietnamese-chatbot)
 
 ---
 
 ## ✨ Features
 
-- ✅ **100% Tiếng Việt** - Giao diện & hỗ trợ hoàn toàn tiếng Việt
-- 🤖 **Gemini AI** - Sử dụng Google Gemini 2.0 Flash (SOTA model)
-- 🎨 **Beautiful UI** - Giao diện modern, responsive với Flask + HTML/CSS
-- 📚 **Lịch sử VN** - Chuyên gia về các triều đại, danh nhân, sự kiện lịch sử
-- 🚫 **Smart Rejection** - Tự động từ chối câu hỏi không liên quan lịch sử
-- 💾 **Conversation Memory** - Nhớ lịch sử trò chuyện trong session
-- 🔐 **Secure** - API key được bảo vệ bằng .env file
-- 📱 **Responsive** - Hoạt động tốt trên desktop, tablet, mobile
-- ⚡ **Fast** - Response time nhanh với Gemini API
+- 🇻🇳 **100% Vietnamese Support** - Native support for Vietnamese conversations
+- 🤖 **Multi-Model Support** - Switch between Gemini 1.5 Flash & Pro models
+- 💬 **Conversation Memory** - Bot remembers chat history within sessions
+- 🎨 **Beautiful UI** - Clean, responsive Streamlit interface
+- ⚙️ **Customizable Prompts** - Adjust bot personality and behavior
+- ⚡ **Fast & Efficient** - Real-time responses powered by Gemini
+- 🔐 **Secure API Key Management** - Environment variable-based configuration
+- 📱 **Mobile Friendly** - Works on desktop and mobile devices
+- 🚀 **Easy Deployment** - One-click deployment to Streamlit Cloud
 
 ---
 
-## 🎯 Use Cases
+## 🏗️ Architecture
 
-1. **Học tập lịch sử** - Giải thích về các triều đại, vua chúa
-2. **Tra cứu sự kiện** - Tìm hiểu sự kiện lịch sử quan trọng
-3. **Nghiên cứu** - Tìm hiểu về danh nhân lịch sử Việt Nam
-4. **Văn hoá** - Khám phá di sản văn hoá Việt Nam
-5. **Tiếng Việt** - Cơ hội sử dụng tiếng Việt chính xác
+```
+┌──────────────────┐
+│   User (Web UI)  │
+└────────┬─────────┘
+         │ User Input
+         ▼
+┌──────────────────────┐
+│  Streamlit App       │
+│  (Frontend)          │
+└────────┬─────────────┘
+         │ Prompt + Context
+         ▼
+┌──────────────────────┐
+│  Gemini 1.5 API      │
+│  (AI Model)          │
+└────────┬─────────────┘
+         │ Response
+         ▼
+┌──────────────────────┐
+│  Display Response    │
+│  Save to History     │
+└──────────────────────┘
+```
+
+### Message Processing Flow
+
+1. **User Input** → Người dùng nhập tin nhắn vào Streamlit UI
+2. **Save History** → Tin nhắn lưu vào session state
+3. **Build Context** → Toàn bộ lịch sử trò chuyện được build
+4. **Send to Gemini** → Context + system prompt gửi tới API
+5. **Generate Response** → Gemini tạo response tiếng Việt
+6. **Display & Save** → Hiển thị kết quả và lưu vào memory
 
 ---
 
-## 🚀 Quick Start
+## 📋 Prerequisites
 
-### 1️⃣ Clone Repository
+- Python 3.9+
+- Google Gemini API Key (free tier available at [Google AI Studio](https://aistudio.google.com))
+- pip (Python package manager)
+- Git (optional, for cloning)
 
+---
+
+## 🚀 Quick Start (4 Steps)
+
+### Step 1: Clone Repository
 ```bash
-git clone https://github.com/[your-username]/vietnamese-history-chatbot.git
-cd vietnamese-history-chatbot
+git clone https://github.com/Tindinhh/vietnamese-chatbot.git
+cd vietnamese-chatbot
 ```
 
-### 2️⃣ Setup Virtual Environment
-
-```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate (Windows)
-venv\Scripts\activate
-
-# Activate (macOS/Linux)
-source venv/bin/activate
-```
-
-### 3️⃣ Install Dependencies
-
+### Step 2: Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Get Gemini API Key
-
-1. Visit: **https://aistudio.google.com/app/apikey**
-2. Click "Create API Key"
-3. Copy your API key
-
-### 5️⃣ Setup .env File
-
+### Step 3: Set Up Environment Variables
 ```bash
-# Copy .env.example to .env
+# Copy the example file
 cp .env.example .env
 
-# Edit .env and paste your API key
-# GEMINI_API_KEY=your_api_key_here
+# Edit .env and add your API key
+# GOOGLE_API_KEY=your_actual_api_key_here
 ```
 
-### 6️⃣ Run Application
-
+Or set directly in terminal:
 ```bash
-python app/main.py
+export GOOGLE_API_KEY="your_api_key_here"
 ```
 
-**Output:**
-```
-==============================================================
-🇻🇳 SỬ VIỆT TOÀN THƯ - Vietnamese History Chatbot
-==============================================================
-✅ Flask app starting...
-📍 Visit: http://localhost:5000
-==============================================================
+### Step 4: Run Application
+```bash
+streamlit run app.py
 ```
 
-👉 **Open browser:** `http://localhost:5000`
+The app will open at `http://localhost:8501` 🎉
 
 ---
 
-## 📂 Project Structure
+## 🔑 Getting Your Gemini API Key
+
+1. Go to [Google AI Studio](https://aistudio.google.com)
+2. Click **"Get API Key"** button
+3. Create a new API key
+4. Copy the key and paste into `.env` file
+
+**Free tier includes:** 15 requests per minute, 1500 requests per day
+
+---
+
+## 📁 Project Structure
 
 ```
-vietnamese-history-chatbot/
-├── app/
-│   ├── main.py                 # Flask application
-│   ├── templates/
-│   │   └── index.html          # HTML UI
-│   └── static/
-│       └── style.css           # CSS styling
-├── requirements.txt            # Python dependencies
-├── .env.example               # Environment template
-├── .gitignore                 # Git ignore rules
-├── README.md                  # This file
-└── .git/
+vietnamese-chatbot/
+├── app.py                 # Main Streamlit application
+├── requirements.txt       # Python dependencies
+├── .env.example          # Environment variables template
+├── .gitignore            # Git ignore rules
+├── README.md             # This file
+├── docs/                 # Additional documentation
+│   ├── setup.md          # Detailed setup guide
+│   ├── deployment.md     # Deployment instructions
+│   └── examples.md       # Usage examples
+└── assets/               # Images, screenshots
+    └── demo.png          # Demo screenshot
 ```
 
 ---
 
-## 🔧 Setup Details
+## ⚙️ Configuration
 
-### Environment Variables
+### Environment Variables (.env)
 
-Create `.env` file in project root:
+```env
+# Required
+GOOGLE_API_KEY=your_api_key_here
 
-```
-GEMINI_API_KEY=AIzaSy_xxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-**⚠️ IMPORTANT:** Never commit `.env` file to Git!
-
-### Dependencies
-
-| Package | Version | Purpose |
-|---------|---------|---------|
-| Flask | 3.0+ | Web framework |
-| google-generativeai | 0.4+ | Gemini API |
-| python-dotenv | 1.0+ | Env variables |
-| gunicorn | 21.2+ | Production server |
-
----
-
-## 💬 Usage
-
-### Chat Interface
-
-1. **Type your question:** Nhập câu hỏi về lịch sử VN
-2. **Press Enter or Click Send:** Gửi câu hỏi
-3. **Wait for response:** AI sẽ trả lời trong vài giây
-
-### Example Questions
-
-```
-✅ "Ai là vua Quang Trung?"
-✅ "Nhà Trần có bao nhiêu vị vua?"
-✅ "Tây Sơn là gì?"
-✅ "Trần Hưng Đạo chống Mông Nguyên như thế nào?"
-✅ "Di sản văn hoá Việt Nam gồm những gì?"
-
-❌ "Thời tiết hôm nay như thế nào?" (Không liên quan lịch sử)
-❌ "Cách nấu phở" (Không liên quan lịch sử)
+# Optional
+DEFAULT_MODEL=gemini-1.5-flash        # or gemini-1.5-pro
+TEMPERATURE=0.7                       # 0.0-1.0 (higher = more creative)
+MAX_OUTPUT_TOKENS=1024                # Response length limit
 ```
 
-### Features
+### Customizing System Prompt
 
-| Feature | Description |
-|---------|-------------|
-| **Clear History** | Xóa lịch sử trò chuyện |
-| **Status Indicator** | Hiển thị trạng thái kết nối |
-| **Markdown Support** | AI trả lời với formatting đẹp |
-| **Responsive Design** | Hoạt động trên mọi thiết bị |
-| **Auto-scroll** | Tự động cuộn đến tin nhắn mới |
-
----
-
-## 🤖 AI System
-
-### System Instruction
-
-Bot được lập trình với hướng dẫn chi tiết:
-
-```
-1. ✅ CHỈ trả lời câu hỏi liên quan LỊCH SỬ VIỆT NAM
-2. ❌ TỪ CHỐI trả lời nếu câu hỏi KHÔNG liên quan
-3. 📚 Chuyên sâu về: Triều đại, Vua chúa, Sự kiện, Di sản
-4. 💬 Phong cách: Hào hùng, tôn trọng, sử dụng Markdown
-5. 🚫 Cấm: Spam, phiếm luận, nội dung không liên quan
-```
-
-### Model Configuration
+Edit the default system prompt in `app.py`:
 
 ```python
-model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",    # Latest model
-    system_instruction=SYSTEM_INSTRUCTION
-)
-
-generation_config = {
-    "temperature": 0.7,               # Balance: creative + consistent
-    "top_p": 0.95,                    # Diversity
-    "max_output_tokens": 1024,        # Response length
-}
+DEFAULT_SYSTEM_PROMPT = """
+Bạn là TinBot, một trợ lý AI thân thiện và hữu ích.
+Bạn nói tiếng Việt một cách tự nhiên và mục tiêu là giúp người dùng.
+Hãy luôn lịch sự, tích cực, và cố gắng hết sức để trả lời câu hỏi.
+"""
 ```
 
 ---
 
-## 📡 API Endpoints
+## 💬 Usage Examples
 
-### POST /chat
-
-Send a message to the chatbot.
-
-**Request:**
-```json
-{
-  "message": "Ai là vua Quang Trung?"
-}
+### Example 1: Learning Assistance
+```
+User: Giải thích cho tôi về Machine Learning là gì?
+Bot: Machine Learning là một lĩnh vực của AI...
 ```
 
-**Response (Success):**
-```json
-{
-  "success": true,
-  "reply": "Quang Trung (1753-1792)...",
-  "history_length": 2
-}
+### Example 2: Coding Help
+```
+User: Cách để filter list trong Python?
+Bot: Bạn có thể sử dụng list comprehension hoặc filter()...
 ```
 
-**Response (Error):**
-```json
-{
-  "success": false,
-  "error": "Lỗi xác thực API key"
-}
+### Example 3: Creative Writing
 ```
-
-### POST /clear
-
-Clear conversation history.
-
-**Request:**
-```bash
-POST /clear
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "message": "Lịch sử trò chuyện đã xóa"
-}
-```
-
-### GET /health
-
-Health check endpoint.
-
-**Response:**
-```json
-{
-  "status": "healthy",
-  "version": "1.0.0",
-  "model": "gemini-2.0-flash",
-  "api_configured": true
-}
+User: Viết một bài thơ ngắn về mùa xuân
+Bot: [Generates Vietnamese poem]
 ```
 
 ---
 
-## 🚀 Deployment
+## 🎨 Customization
 
-### Option 1: Heroku
+### Change Bot Personality
 
-```bash
-# 1. Install Heroku CLI
-# 2. Create Heroku app
-heroku create your-app-name
+Modify the system prompt via sidebar:
+- Default: Friendly, helpful AI assistant
+- Expert Mode: Technical, professional responses
+- Creative Mode: Imaginative, artistic responses
+- Learning Mode: Educational, detailed explanations
 
-# 3. Set environment variables
-heroku config:set GEMINI_API_KEY=your_key
+### Switch Models
 
-# 4. Create Procfile
-echo "web: gunicorn app.main:app" > Procfile
-
-# 5. Deploy
-git push heroku main
-```
-
-### Option 2: Railway
-
-```bash
-# 1. Connect GitHub repo to Railway
-# 2. Add environment variable in Railway dashboard
-# 3. Deploy automatically!
-```
-
-### Option 3: PythonAnywhere
-
-```bash
-# 1. Upload files to PythonAnywhere
-# 2. Create virtual environment
-# 3. Configure web app
-# 4. Set environment variables in WSGI
-# 5. Reload app
-```
-
-### Option 4: Docker
-
-```dockerfile
-FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app.main:app"]
-```
-
-```bash
-# Build & Run
-docker build -t history-chatbot .
-docker run -e GEMINI_API_KEY=your_key -p 5000:5000 history-chatbot
-```
+Use the sidebar dropdown to choose:
+- **Gemini 1.5 Flash** ⚡ - Faster, cheaper (recommended for chat)
+- **Gemini 1.5 Pro** 🚀 - More powerful, better quality
 
 ---
 
-## 🔐 Security
+## 📊 Model Comparison
 
-### API Key Protection
-
-```bash
-✅ Store API key in .env (never in code)
-✅ Add .env to .gitignore
-✅ Use environment variables in production
-❌ NEVER commit .env to Git
-❌ NEVER share API key publicly
-```
-
-### Input Validation
-
-- All user inputs are validated
-- HTML is sanitized with DOMPurify
-- Error messages don't expose sensitive info
+| Feature | Flash | Pro |
+|---------|-------|-----|
+| Speed | ⚡⚡⚡ Fast | ⚡⚡ Medium |
+| Quality | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Cost | 💰 Cheaper | 💰💰 Higher |
+| Best For | Real-time chat | Complex tasks |
 
 ---
 
-## 🐛 Troubleshooting
+## 🌐 Deployment
 
-### Issue: "API Key not found"
+### Deploy to Streamlit Cloud (Recommended)
 
+1. Push code to GitHub:
+```bash
+git add .
+git commit -m "Deploy Vietnamese Chatbot"
+git push origin main
+```
+
+2. Go to [Streamlit Cloud](https://share.streamlit.io)
+
+3. Click "New app" and select your repository
+
+4. Add secrets:
+   - Go to App settings → Secrets
+   - Paste your API key:
+   ```
+   GOOGLE_API_KEY = "your_api_key"
+   ```
+
+5. Deploy! 🚀
+
+### Deploy with Docker
+
+```bash
+# Build image
+docker build -t vietnamese-chatbot .
+
+# Run container
+docker run -e GOOGLE_API_KEY="your_key" -p 8501:8501 vietnamese-chatbot
+```
+
+### Deploy to AWS / GCP
+
+See `docs/deployment.md` for cloud deployment guides.
+
+---
+
+## ⚠️ Known Limitations
+
+- **Rate Limiting**: Free tier has 15 req/min limit
+- **Session Memory**: Chat history resets when app restarts
+- **Offline Mode**: Requires internet connection
+- **Hallucinations**: LLM may occasionally generate incorrect info
+- **Cost at Scale**: Pricing increases with high usage
+
+---
+
+## 🛠️ Troubleshooting
+
+### Issue: "Invalid API Key"
 ```
 Solution:
-1. Check .env file exists
-2. Verify GEMINI_API_KEY=... is set correctly
-3. Regenerate key from https://aistudio.google.com
+1. Verify API key is correct
+2. Check .env file formatting
+3. Restart app after changing .env
+4. Generate new key from Google AI Studio
 ```
 
-### Issue: "Connection Error"
-
-```
-Solution:
-1. Check internet connection
-2. Verify API is accessible
-3. Check if API key is valid
-4. Try using gemini-pro model instead
-```
-
-### Issue: "Slow Response"
-
+### Issue: "Rate limit exceeded"
 ```
 Solution:
-1. Use gemini-2.0-flash (faster than pro)
-2. Reduce max_output_tokens
-3. Clear conversation history periodically
+1. Free tier limited to 15 req/min
+2. Wait a minute before sending new message
+3. Consider upgrading to paid tier
+4. Batch queries if possible
 ```
 
 ### Issue: "Module not found"
-
 ```
 Solution:
-1. Activate virtual environment
-2. pip install -r requirements.txt
-3. Verify Python version 3.8+
+1. Install all requirements: pip install -r requirements.txt
+2. Use Python 3.9+
+3. Use virtual environment: python -m venv venv
+4. Activate: source venv/bin/activate (Linux/Mac) or venv\Scripts\activate (Windows)
+```
+
+### Issue: "Vietnamese text not displaying"
+```
+Solution:
+1. Ensure UTF-8 encoding in terminal
+2. Update system fonts
+3. Check browser supports Vietnamese
+4. Restart Streamlit app
 ```
 
 ---
 
-## 📈 Performance
+## 📈 Performance Metrics
 
 | Metric | Value |
 |--------|-------|
-| **Startup Time** | ~2-3 seconds |
-| **Response Time** | 1-3 seconds |
-| **Max Token Length** | 1024 tokens |
-| **Rate Limit** | ~500 req/min (free tier) |
-| **Memory Usage** | ~100MB |
+| Avg Response Time | ~2-3 seconds |
+| Token Limit | 1,000,000 tokens/month (free) |
+| Concurrent Users | Unlimited (Cloud) |
+| Uptime | 99.9% (Streamlit Cloud) |
 
 ---
 
-## 🎓 Learning Value
+## 🔐 Security Best Practices
 
-This project teaches:
+✅ **Do's:**
+- Store API key in `.env` file
+- Never commit `.env` to Git
+- Use `.gitignore` to exclude sensitive files
+- Regenerate keys if compromised
 
-✅ Flask web framework
-✅ REST API design
-✅ Gemini API integration
-✅ Frontend: HTML, CSS, JavaScript
-✅ Backend: Python, async programming
-✅ Environment management (.env)
-✅ Deployment & DevOps basics
-✅ UI/UX design
-✅ Git & version control
+❌ **Don'ts:**
+- Share API key publicly
+- Hardcode keys in source code
+- Use same key across projects
+- Store keys in plain text
+
+---
+
+## 🚀 Future Roadmap
+
+- [ ] Voice input/output support
+- [ ] Image upload capability
+- [ ] Conversation export (JSON/PDF)
+- [ ] Conversation history persistent storage
+- [ ] Multi-user authentication
+- [ ] Rate limiting dashboard
+- [ ] Fine-tuned Vietnamese model
+- [ ] Mobile app (React Native)
+- [ ] Browser extension
+- [ ] Slack integration
+
+---
+
+## 📚 Learning Resources
+
+### Gemini API Documentation
+- [Google Generative AI Docs](https://ai.google.dev)
+- [Gemini API Reference](https://ai.google.dev/api/python)
+- [Prompt Engineering Guide](https://ai.google.dev/docs/prompt_engineering)
+
+### Streamlit Documentation
+- [Streamlit Docs](https://docs.streamlit.io)
+- [Streamlit Community Forum](https://discuss.streamlit.io)
+
+### Related Projects
+- [LangChain](https://github.com/langchain-ai/langchain) - LLM framework
+- [Ollama](https://ollama.ai) - Local LLM
+- [LlamaIndex](https://www.llamaindex.ai) - RAG systems
 
 ---
 
 ## 🤝 Contributing
 
-Contributions welcome! 
+Contributions are welcome! 
 
-```bash
-1. Fork repository
-2. Create feature branch: git checkout -b feature/amazing
-3. Commit: git commit -m "Add amazing feature"
-4. Push: git push origin feature/amazing
-5. Pull Request
-```
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
 ---
 
 ## 📄 License
 
-MIT License - see LICENSE file
+This project is licensed under the MIT License - see `LICENSE` file for details.
 
 ---
 
 ## 👤 Author
 
 **Đinh Tin**
-
 - GitHub: [@Tindinhh](https://github.com/Tindinhh)
 - LinkedIn: [Tinn Đinh](https://www.linkedin.com/in/tinn-đinh-3523711ab/)
+- Email: tindinhh@example.com
 
 ---
 
-## 📚 Resources
+## ⭐ Support
 
-- [Google Gemini API Docs](https://ai.google.dev/docs)
-- [Flask Documentation](https://flask.palletsprojects.com/)
-- [Python Dotenv Guide](https://python-dotenv.readthedocs.io/)
-- [Marked.js (Markdown)](https://marked.js.org/)
-- [DOMPurify (Security)](https://github.com/cure53/DOMPurify)
-
----
-
-## 🎉 Support
-
-Have questions?
-
-- 📖 Check [Issues](https://github.com/Tindinhh/vietnamese-history-chatbot/issues)
-- 💬 Create a Discussion
-- 📧 Email: [your-email@example.com]
+If you found this project helpful, please consider:
+- ⭐ Starring the repository
+- 🐛 Reporting issues
+- 💡 Suggesting improvements
+- 📢 Sharing with others
 
 ---
 
-<div align="center">
+## 🙏 Acknowledgments
 
-**⭐ If you like this project, please star it! ⭐**
+- Google Gemini team for the amazing API
+- Streamlit for the beautiful framework
+- Community contributors and users
+- freeCodeCamp Python course
+- Google Gemini Certification program
 
-Made with ❤️ by Đinh Tin | Powered by Google Gemini API
+---
 
-🇻🇳 **Tự hào là người Việt - Lịch sử nước ta** 🇻🇳
+## 📞 Contact & Support
 
-</div>
+- **Issues/Bugs**: Open GitHub issue
+- **Questions**: Start a GitHub discussion
+- **Feedback**: Email or LinkedIn message
+- **Collaborations**: Always open to partnerships!
+
+---
+
+**Made with ❤️ by Đinh Tin | 2026**
+
+*Last Updated: April 26, 2026*
