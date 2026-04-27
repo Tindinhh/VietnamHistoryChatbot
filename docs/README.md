@@ -1,189 +1,145 @@
 # 🤖 VietnamHistoryChatbot 🇻🇳
 
-A modern, feature-rich AI chatbot focused on **Vietnamese History**, powered by **Google Gemini API**, built with **Streamlit** for a beautiful and interactive web interface. This chatbot is designed to help users explore, learn, and understand Vietnamese history in a natural, conversational way.
-
-It can explain historical events, analyze timelines, describe important figures, and even compare dynasties — all in fluent Vietnamese.
-
-**Live Demo:** Coming Soon
-**GitHub Repository:** [https://github.com/Tindinhh/vietnamese-chatbot](https://github.com/Tindinhh/vietnamese-chatbot)
+A modern AI chatbot specialized in **Vietnamese History**, powered by **Google Gemini 2.0 API** and built with a **Flask + HTML/CSS frontend** for a fast and responsive chat experience.
 
 ---
 
 ## ✨ Features
 
-* 🇻🇳 **Vietnamese History Specialist** – Focused entirely on Vietnam history
-* 📚 **Educational AI** – Structured explanations for students and learners
-* 🧠 **Context-Aware Responses** – Understands previous conversation
-* 🤖 **Multi-Model Support** – Gemini Flash & Pro
-* 💬 **Conversation Memory** – Session-based chat history
-* 🎨 **Modern UI** – Built with Streamlit
-* ⚙️ **Customizable Prompts** – Change teaching style
-* ⚡ **Fast Response Time** – Real-time AI replies
-* 🔐 **Secure API Key Handling**
-* 📱 **Responsive Design**
+* 🇻🇳 **Vietnam History Expert** – Only answers about Vietnamese history
+* 🧠 **Context-Aware Chat** – Remembers conversation history
+* ⚡ **Fast Responses** – Gemini 2.0 Flash model
+* 💬 **Real-time Chat UI** – Clean, modern interface
+* 🎨 **Custom UI Design** – Built with HTML + CSS (no framework)
+* 📚 **Markdown Support** – Rich formatted responses
+* 🔐 **Secure API Key** – `.env` configuration
+* 🧹 **Clear Chat Feature**
+* ❤️ **Vietnamese-first experience**
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-User → Streamlit UI → Context Builder → Gemini API → Response → Display + Memory
+User (Browser)
+     ↓
+Frontend (HTML + JS)
+     ↓
+Flask Backend (Python)
+     ↓
+Google Gemini API
+     ↓
+Response → UI
 ```
 
-### Flow Detail
+---
 
-1. User enters a history question
-2. App stores it in session state
-3. Builds full conversation context
-4. Sends request to Gemini API
-5. AI generates answer
-6. Response displayed and saved
+## 🔄 Message Flow
+
+1. User sends message from UI
+2. Frontend sends POST `/chat` request
+3. Backend builds:
+
+   * System prompt
+   * Chat history
+   * New message
+4. Send to Gemini API
+5. Receive response
+6. Return JSON → Render UI
 
 ---
 
-## 📚 Advanced Capabilities
+## 🧠 AI Behavior
 
-* 🧭 **Timeline Analysis** – Ask by historical period
-* 🔎 **Cause–Effect Breakdown** – Analyze events deeply
-* 🧑‍🏫 **Adaptive Teaching** – Adjusts difficulty level
-* 📖 **Storytelling Mode** – Explain like a history narrative
-* 🎯 **Exam Mode** – Short, key-point answers
-* 🧠 **Memory Context** – Follow-up questions handled smoothly
+System prompt:
 
----
-
-## 💬 Usage Examples
-
-### Basic Question
-
-User: Trận Bạch Đằng 938 là gì?
-
-### Deep Analysis
-
-User: Vì sao nhà Hồ thất bại?
-
-### Comparison
-
-User: So sánh nhà Trần và nhà Lý
-
-### Timeline
-
-User: Lịch sử Việt Nam từ 938 đến 1945
+* Only answer **Vietnamese history**
+* Refuse irrelevant questions
+* Use **clear, strong, educational tone**
+* Format using **Markdown**
 
 ---
 
 ## 📁 Project Structure
 
 ```
-vietnamese-chatbot/
-├── app.py
+VietnamHistoryChatbot/
+├── main.py              # Flask backend
+├── templates/
+│   └── index.html      # UI
+├── static/
+│   └── style.css       # Styling
+├── .env
 ├── requirements.txt
-├── .env.example
-├── README.md
-├── docs/
-└── assets/
 ```
 
 ---
 
-## 🚀 Setup
+## ⚙️ Setup
+
+### 1. Clone
 
 ```bash
-git clone https://github.com/Tindinhh/vietnamese-chatbot.git
-cd vietnamese-chatbot
+git clone https://github.com/Tindinhh/VietnamHistoryChatbot
+cd VietnamHistoryChatbot
+```
+
+### 2. Install
+
+```bash
 pip install -r requirements.txt
-cp .env.example .env
 ```
 
-Add API key:
+### 3. Add API Key
 
 ```
-GOOGLE_API_KEY=your_key
+GEMINI_API_KEY=your_key
 ```
 
-Run app:
+### 4. Run
 
 ```bash
-streamlit run app.py
+python main.py
 ```
+
+👉 Open: http://localhost:5000
 
 ---
 
-## ⚙️ Configuration
+## 📡 API Endpoints
 
-```env
-DEFAULT_MODEL=gemini-1.5-flash
-TEMPERATURE=0.7
-MAX_OUTPUT_TOKENS=1024
-```
-
----
-
-## 🧠 System Prompt (History Bot)
-
-```python
-Bạn là VietnamHistoryBot.
-Bạn chuyên về lịch sử Việt Nam.
-Trả lời rõ ràng, có mốc thời gian.
-Giải thích dễ hiểu như giáo viên.
-```
-
----
-
-## 📊 Model Comparison
-
-| Feature | Flash | Pro           |
-| ------- | ----- | ------------- |
-| Speed   | Fast  | Medium        |
-| Quality | Good  | Very High     |
-| Use     | Chat  | Deep analysis |
+| Endpoint  | Method | Description   |
+| --------- | ------ | ------------- |
+| `/`       | GET    | Load UI       |
+| `/chat`   | POST   | Send message  |
+| `/clear`  | POST   | Clear history |
+| `/health` | GET    | Check API     |
 
 ---
 
 ## ⚠️ Limitations
 
-* API free có giới hạn
-* Không lưu lâu dài
-* Có thể sai nếu prompt không rõ
+* Requires internet
+* API rate limits
+* No persistent database
+* May generate incorrect info (LLM limitation)
 
 ---
 
-## 🛠️ Troubleshooting
+## 🚀 Future Improvements
 
-**API lỗi** → kiểm tra key
-**Rate limit** → chờ
-**Module lỗi** → cài lại requirements
-
----
-
-## 🚀 Roadmap
-
-* Voice hỏi đáp
-* Quiz lịch sử
-* Timeline UI
+* Voice input/output
+* Database (save history)
+* Multi-language support
 * Mobile app
+* Fine-tuned history model
 
 ---
 
 ## 👤 Author
 
 Đinh Tin
-GitHub: [https://github.com/Tindinhh](https://github.com/Tindinhh)
-
----
-
-## ⭐ Support
-
-* Star repo
-* Report bug
-* Suggest feature
-
----
-
-## 🙏 Credits
-
-* Google Gemini
-* Streamlit
+GitHub: https://github.com/Tindinhh
 
 ---
 
